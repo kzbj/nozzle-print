@@ -26,3 +26,13 @@ Content-Type: application/json
   "material": "wood",
   "color": "black"
 }
+###
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "id": 1,
+  "email": "hacker@mail.cz",
+  "material": "ABS",
+  "color": "pink"
+}

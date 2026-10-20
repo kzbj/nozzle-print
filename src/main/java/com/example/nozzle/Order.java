@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -20,7 +22,8 @@ public class Order {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Material material;
-
+    @Column(unique = true)
+    private UUID token = UUID.randomUUID();
     protected Order(){}
 
     public Order(String name, String email, Material material, String color){
@@ -48,5 +51,9 @@ public class Order {
 
     public Material getMaterial() {
         return material;
+    }
+
+    public UUID getToken(){
+        return token;
     }
 }
