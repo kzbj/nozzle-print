@@ -1,0 +1,28 @@
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "email": "alex@mail.cz",
+  "material": "PETG",
+  "color": "black"
+}
+###
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "name": "",
+  "material": "PLA",
+  "color": "red"
+}
+###
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "email": "alex@mail.cz",
+  "material": "wood",
+  "color": "black"
+}
