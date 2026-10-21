@@ -5,8 +5,6 @@
   </picture>
 </p>
 
-<p align="center"><em>Every print passes through one small opening.</em></p>
-
 # Nozzle
 
 A platform that connects people who need something 3D-printed with people who own 3D printers. A client uploads a model, picks material and colour, and places an order; the platform offers it to a suitable printer owner nearby, taxi-style, and holds the payment until the print is delivered.
