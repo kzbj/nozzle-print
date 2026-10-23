@@ -42,3 +42,11 @@ Example requests are in [`requests.http`](requests.http).
 
 - [Requirements](docs/requirements.md) — how the system should work: order lifecycle, dispatch, payment, delivery, moderation, and ideas deliberately left for later
 - Design decisions (`docs/decisions/`) — coming soon: why each rule was chosen and what alternatives were considered
+
+## Design
+
+<p align="center">
+  <img src="docs/design/Frame%201.png" alt="Order page" width="48%">
+  &nbsp;
+  <img src="docs/design/Frame%203.png" alt="Order status" width="48%">
+</p>
