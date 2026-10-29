@@ -49,3 +49,21 @@ Content-Type: application/json
   "delivery": "COURIER",
   "address": "Ukázková 12, Praha"
 }
+###
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "email": "alex@example.com",
+  "material": "PLA",
+  "color": "GRAY",
+  "quantity": 2,
+  "delivery": "COURIER",
+  "address": "Ukázková 12, Praha"
+}
+
+> {% client.global.set("token", response.body.token); %}
+
+###
+GET http://localhost:8080/api/orders/{{token}}
