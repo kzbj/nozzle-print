@@ -36,3 +36,16 @@ Content-Type: application/json
   "material": "ABS",
   "color": "pink"
 }
+
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "email": "alex@example.com",
+  "material": "PLA",
+  "color": "GRAY",
+  "quantity": 2,
+  "delivery": "COURIER",
+  "address": "Ukázková 12, Praha"
+}

@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/orders")
 public class OrderController {
 
-    private final OrderRepository repository;
+    private final OrderService service;
 
-    public OrderController(OrderRepository repository){
-        this.repository = repository;
+    public OrderController(OrderService service){
+        this.service = service;
     }
 
     @PostMapping
-    public Order createOrder(@RequestBody @Valid Order order){
-        return repository.save(order);
+    public Order createOrder(@RequestBody @Valid CreateOrderRequest request){
+        return service.createOrder(request);
     }
 
 }
