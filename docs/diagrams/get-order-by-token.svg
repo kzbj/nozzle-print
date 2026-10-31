@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="708" viewBox="0 0 680 708" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Nozzle — GET /api/orders/{token} (get order)</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      .h{font-size:14px;font-weight:600;fill:#2C2C2A}
+      .hp{font-size:14px;font-weight:600;fill:#3C3489}
+      .s{font-size:12px;fill:#444441}
+      .st{font-size:12px;fill:#085041}
+      .gray{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:0.5}
+      .pur{fill:#EEEDFE;stroke:#534AB7;stroke-width:0.5}
+      .teal{fill:#E1F5EE;stroke:#0F6E56;stroke-width:0.5}
+      .life{stroke:#888780;stroke-width:0.5;stroke-dasharray:3 4}
+      .call{stroke:#5F5E5A;stroke-width:1.5;fill:none}
+      .ret{stroke:#5F5E5A;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+      .err{stroke:#E24B4A;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+    </style>
+  </defs>
+  <rect width="680" height="708" fill="#FFFFFF"/>
+  <rect class="gray" x="20" y="30" width="100" height="40" rx="8"/><text class="h" x="70" y="50" text-anchor="middle" dominant-baseline="central">Client</text>
+  <rect class="pur" x="155" y="30" width="120" height="40" rx="8"/><text class="hp" x="215" y="50" text-anchor="middle" dominant-baseline="central">Controller</text>
+  <rect class="pur" x="305" y="30" width="110" height="40" rx="8"/><text class="hp" x="360" y="50" text-anchor="middle" dominant-baseline="central">Service</text>
+  <rect class="pur" x="440" y="30" width="110" height="40" rx="8"/><text class="hp" x="495" y="50" text-anchor="middle" dominant-baseline="central">Repository</text>
+  <rect class="gray" x="565" y="30" width="105" height="40" rx="8"/><text class="h" x="617" y="50" text-anchor="middle" dominant-baseline="central">PostgreSQL</text>
+  <line class="life" x1="70" y1="70" x2="70" y2="638"/>
+  <line class="life" x1="215" y1="70" x2="215" y2="124"/><line class="life" x1="215" y1="176" x2="215" y2="536"/><line class="life" x1="215" y1="588" x2="215" y2="638"/>
+  <line class="life" x1="360" y1="70" x2="360" y2="410"/><line class="life" x1="360" y1="462" x2="360" y2="638"/>
+  <line class="life" x1="495" y1="70" x2="495" y2="638"/>
+  <line class="life" x1="617" y1="70" x2="617" y2="638"/>
+
+  <text class="s" x="142" y="102" text-anchor="middle">GET + token in URL</text>
+  <line class="call" x1="72" y1="110" x2="211" y2="110" marker-end="url(#a)"/>
+  <rect class="teal" x="120" y="124" width="190" height="52" rx="6"/>
+  <text class="st" x="215" y="139" text-anchor="middle" dominant-baseline="central">UUID ← token (@PathVariable)</text>
+  <line x1="130" y1="152" x2="300" y2="152" stroke="#0F6E56" stroke-width="0.5"/>
+  <text class="st" x="215" y="165" text-anchor="middle" dominant-baseline="central">result: token</text>
+  <text class="s" x="142" y="194" text-anchor="middle">otherwise 400</text>
+  <line class="err" x1="211" y1="202" x2="74" y2="202" marker-end="url(#r)"/>
+
+  <text class="s" x="287" y="228" text-anchor="middle">findByToken(token)</text>
+  <line class="call" x1="217" y1="236" x2="356" y2="236" marker-end="url(#a)"/>
+  <text class="s" x="427" y="268" text-anchor="middle">findByToken(token)</text>
+  <line class="call" x1="362" y1="276" x2="491" y2="276" marker-end="url(#a)"/>
+  <text class="s" x="556" y="308" text-anchor="middle">SELECT</text>
+  <line class="call" x1="497" y1="316" x2="613" y2="316" marker-end="url(#a)"/>
+  <text class="s" x="556" y="348" text-anchor="middle">row or nothing</text>
+  <line class="ret" x1="613" y1="356" x2="499" y2="356" marker-end="url(#a)"/>
+  <text class="s" x="427" y="388" text-anchor="middle">Optional&lt;Order&gt;</text>
+  <line class="ret" x1="491" y1="396" x2="364" y2="396" marker-end="url(#a)"/>
+
+  <rect class="teal" x="255" y="410" width="210" height="52" rx="6"/>
+  <text class="st" x="360" y="425" text-anchor="middle" dominant-baseline="central">Order ← Optional (orElseThrow)</text>
+  <line x1="265" y1="438" x2="455" y2="438" stroke="#0F6E56" stroke-width="0.5"/>
+  <text class="st" x="360" y="451" text-anchor="middle" dominant-baseline="central">result: order</text>
+  <text class="s" x="142" y="474" text-anchor="middle">empty → 404</text>
+  <line class="err" x1="356" y1="482" x2="74" y2="482" marker-end="url(#r)"/>
+
+  <text class="s" x="287" y="514" text-anchor="middle">Order</text>
+  <line class="ret" x1="356" y1="522" x2="219" y2="522" marker-end="url(#a)"/>
+  <rect class="teal" x="120" y="536" width="190" height="52" rx="6"/>
+  <text class="st" x="215" y="551" text-anchor="middle" dominant-baseline="central">OrderResponse ← order (from)</text>
+  <line x1="130" y1="564" x2="300" y2="564" stroke="#0F6E56" stroke-width="0.5"/>
+  <text class="st" x="215" y="577" text-anchor="middle" dominant-baseline="central">result: response</text>
+  <text class="s" x="142" y="612" text-anchor="middle">response JSON</text>
+  <line class="ret" x1="211" y1="620" x2="74" y2="620" marker-end="url(#a)"/>
+
+  <text class="s" x="340" y="666" text-anchor="middle">Arrows: solid — call, dashed — return, red dashed — rejection</text>
+  <text class="s" x="340" y="686" text-anchor="middle">Notes: receiver ← what (from whom), below the line — result</text>
+</svg>

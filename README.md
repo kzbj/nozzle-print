@@ -13,10 +13,20 @@ A platform that connects people who need something 3D-printed with people who ow
 
 ## What works now
 
-- `POST /api/orders` — create an order (material is one of `PLA`, `PETG`, `ABS`, `TPU`), with request validation
-- Orders are stored in PostgreSQL
+- `POST /api/orders` — create an order with request validation; the server sets the private token, status and creation time itself
+- `GET /api/orders/{token}` — get an order by its private token (returns only client-facing fields, `404` if not found)
+- Orders are stored in PostgreSQL, with constraints at the database level as well
 
-Everything else described in the docs is planned, not implemented yet.
+## How it works
+
+<p align="center">
+  <img src="docs/diagrams/post-create-order.svg" alt="Create order — POST /api/orders" width="49%">
+  &nbsp;
+  <img src="docs/diagrams/get-order-by-token.svg" alt="Get order by token — GET /api/orders/{token}" width="49%">
+</p>
+<p align="center">
+  <sub>Left: create order — <code>POST /api/orders</code> · Right: get order by token — <code>GET /api/orders/{token}</code></sub>
+</p>
 
 ## Tech stack
 
